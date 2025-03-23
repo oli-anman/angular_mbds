@@ -5,32 +5,37 @@ import { NavigationErrorComponent } from './navigation-error-component/navigatio
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 import { AboutmeComponent } from './aboutme/aboutme.component';
+import { LoginComponent } from './home/login/login.component';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './home/register/register.component';
+import { AuthGuard } from './shared/auth.guard';
 
 export const routes: Routes = [
-    // Pour la page d'accueil
-    // On y accèdera avec l'URL : http://localhost:4200/home
-    // ou simplement http://localhost:4200
-    {path: '', component: AssignmentsComponent},
-    {path: 'home', component: AssignmentsComponent},
-    // Pour l'ajout d'assignments
-    // On y accèdera avec l'URL : http://localhost:4200/add
-    {path: 'add', component: AddAssignmentComponent},
-    //pour la routes vers le componant aboutme
-    {path: 'about', component: AboutmeComponent},
-    // Pour la page d'erreur 404
-    // On y accèdera avec n'importe quelle URL qui ne correspond pas
-    // à une route définie
-    {path: '**', component: NavigationErrorComponent},
- // Pour le détail d'un assignment
-    // On y accèdera avec l'URL : http://localhost:4200/assignment/1 ou
-    // http://localhost:4200/assignment/2 ou ... avec 1 
-    // qui représente l'id de l'assignment
-    {path: 'assignments/:id', component: AssignmentDetailComponent},
-    // Pour la modification d'un assignment existant
-    {path: 'assignments/:id/edit', component: EditAssignmentComponent},
-   
-    // Pour l'erreur 404
-    // On y accèdera avec n'importe quelle URL qui ne correspond pas
-    // à une route définie
-    {path: '**', component:NavigationErrorComponent}
+    // Route par défaut
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+
+    // Routes pour la page d'accueil, la connexion et l'inscription
+    { path: 'home', component: HomeComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent },
+
+    // Routes protégées avec AuthGuard
+    {
+        path: '',
+        canActivate: [AuthGuard], // Utilisation de canActivate pour protéger l'accès
+        children: [
+            { path: 'assignments', component: AssignmentsComponent },
+            { path: 'assignments/:id', component: AssignmentDetailComponent },
+            { path: 'assignments/:id/edit', component: EditAssignmentComponent }
+        ]
+    },
+
+    // Route pour ajouter un assignment
+    { path: 'add', component: AddAssignmentComponent },
+
+    // Route vers la page "About me"
+    { path: 'about', component: AboutmeComponent },
+
+    // Route pour l'erreur 404 (page non trouvée)
+    { path: '**', component: NavigationErrorComponent }
 ];
