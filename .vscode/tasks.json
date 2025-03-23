@@ -21,6 +21,25 @@
       }
     },
     {
+      "label": "ng serve",
+      "type": "shell",
+      "command": "ng serve",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": ".*"
+          },
+          "endsPattern": {
+            "regexp": "Compiled successfully."
+          }
+        }
+      }
+    },
+    {
       "type": "npm",
       "script": "test",
       "isBackground": true,

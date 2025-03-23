@@ -4,6 +4,7 @@ import { AddAssignmentComponent } from './assignments/add-assignment/add-assignm
 import { NavigationErrorComponent } from './navigation-error-component/navigation-error-component.component';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
+import { AboutmeComponent } from './aboutme/aboutme.component';
 
 export const routes: Routes = [
     // Pour la page d'accueil
@@ -14,6 +15,12 @@ export const routes: Routes = [
     // Pour l'ajout d'assignments
     // On y accèdera avec l'URL : http://localhost:4200/add
     {path: 'add', component: AddAssignmentComponent},
+    //pour la routes vers le componant aboutme
+    {path: 'about', component: AboutmeComponent},
+    // Pour la page d'erreur 404
+    // On y accèdera avec n'importe quelle URL qui ne correspond pas
+    // à une route définie
+    {path: '**', component: NavigationErrorComponent},
  // Pour le détail d'un assignment
     // On y accèdera avec l'URL : http://localhost:4200/assignment/1 ou
     // http://localhost:4200/assignment/2 ou ... avec 1 
