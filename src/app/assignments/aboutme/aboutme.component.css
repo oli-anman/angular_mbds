@@ -60,6 +60,7 @@ header {
     text-decoration: none;
     border-radius: 5px;
     transition: 0.3s ease-in-out;
+    margin: 15px;
 }
 
 .contact-btn:hover {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-aboutme',
   imports: [],
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './aboutme.component.css'
 })
 export class AboutmeComponent {
+
 
 }

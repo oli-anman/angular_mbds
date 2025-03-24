@@ -16,11 +16,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatButtonModule, 
     MatDividerModule, 
     MatIconModule, 
-    RouterLink,
+    // RouterLink,
     MatSidenavModule, // Ajout du module MatSidenav ici
     MatListModule,
     MatSlideToggleModule,
-    MatToolbarModule
+    MatToolbarModule,
+    
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] // Changement de styleUrl à styleUrls pour que l'array fonctionne

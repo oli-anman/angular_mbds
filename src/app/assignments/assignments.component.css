@@ -8,6 +8,9 @@
     color:red;
     border: 2px solid red;
 }
+button{
+  margin: 5px;
+}
 
 table {
     width: 50%;

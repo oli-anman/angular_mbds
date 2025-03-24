@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RenduDirective } from '../shared/rendu.directive';
-import { NonRenduDirective } from '../shared/non-rendu.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
@@ -17,7 +15,7 @@ import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-assignments',
-  imports: [CommonModule, RenduDirective, NonRenduDirective,
+  imports: [CommonModule,
     MatListModule, MatDividerModule, MatButtonModule,
     MatInputModule,MatFormFieldModule,FormsModule,
     MatTableModule, MatPaginatorModule,
